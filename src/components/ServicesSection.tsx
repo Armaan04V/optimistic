@@ -34,7 +34,7 @@ export const ServicesSection = () => {
       icon: PaintBucket,
       title: "Renovation & Remodeling",
       description: "Transform existing spaces with modern upgrades and innovative design solutions.",
-      features: ["Interior Renovation", "Exterior Upgrades", "Kitchen Remodeling", "Bathroom Renovation"]
+      features: ["Interior Renovation", "Exterior Upgrades", "Kitchen Remodeling", "Washroom Renovation"]
     },
     {
       icon: Ruler,

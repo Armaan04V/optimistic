@@ -88,7 +88,7 @@ export const HeroSection = () => {
               <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-4">
                 <Users className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="heading-lg text-primary mb-2">150+</h3>
+              <h3 className="heading-lg text-primary mb-2">175+</h3>
               <p className="text-primary/80">Happy Clients</p>
             </div>
 

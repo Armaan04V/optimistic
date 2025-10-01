@@ -51,7 +51,7 @@ export const ContactSection = () => {
     {
       icon: MapPin,
       title: "Office",
-      detail: "Shop No. 14, Pine Homes",
+      detail: (<> Address 1 - Shop No. 14, Pine Homes, Dhakoli <br /> Address 2 -  4310 E Block Aerocity, SAS Nagar Mohali </>),
       subdDetail: "Dhakoli, Zirakpur, SAS Nagar - 140603",
     },
   ];

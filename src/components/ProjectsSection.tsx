@@ -12,7 +12,7 @@ import sunshine2 from "@/assets/sunshine2.jpg";
 import sunshine3 from "@/assets/sunshine3.png";
 import sunshine4 from "@/assets/sunshine4.jpg";
 
-import mamta1 from "@/assets/mamta1.jpg";
+
 import mamta2 from "@/assets/mamta2.jpg";
 import mamta3 from "@/assets/mamta3.jpg";
 
@@ -29,6 +29,7 @@ import project2103_1 from "@/assets/2103-1.jpg";
 import project2103_2 from "@/assets/2103-2.jpg";
 import project2103_3 from "@/assets/2103-3.jpg";
 import project2103_4 from "@/assets/2103-4.png";
+import project2103_5 from "@/assets/2103-5.jpg"
 
 import project3049_1 from "@/assets/3049-1.jpg";
 import project3049_2 from "@/assets/3049-2.jpg";
@@ -88,8 +89,8 @@ export const ProjectsSection: React.FC = () => {
       location: "Dhakoli, Zirakpur",
       description:
         "Beautifully designed houses and flats offering modern living with spacious rooms, well-ventilated interiors, and secure community surroundings.",
-      image: mamta1,
-      images: [mamta1, mamta2, mamta3],
+      image: mamta2,
+      images: [mamta2, mamta3],
       features: [
         "Spacious Layout",
         "Ample Parking",
@@ -196,7 +197,7 @@ export const ProjectsSection: React.FC = () => {
       description:
         "Premium villas crafted for modern living, featuring spacious layouts, private terraces, and luxurious amenities.",
       image: project2103_1,
-      images: [project2103_1, project2103_2, project2103_3, project2103_4],
+      images: [project2103_5, project2103_2, project2103_3, project2103_4, project2103_1],
       features: [
         "Modern Duplex",
         "Stylish Interiors",
@@ -452,9 +453,11 @@ const KeenImageSlider: React.FC<{ images: string[] }> = ({ images }) => {
 function Autoplay(slider: any) {
   let timeout: any;
   let mouseOver = false;
+
   function clearNextTimeout() {
     clearTimeout(timeout);
   }
+
   function nextTimeout() {
     clearTimeout(timeout);
     if (mouseOver) return;
@@ -462,7 +465,11 @@ function Autoplay(slider: any) {
       slider.next();
     }, 3000);
   }
+
   slider.on("created", () => {
+    // Start autoplay immediately
+    nextTimeout();
+
     slider.container.addEventListener("mouseover", () => {
       mouseOver = true;
       clearNextTimeout();
@@ -471,11 +478,12 @@ function Autoplay(slider: any) {
       mouseOver = false;
       nextTimeout();
     });
-    nextTimeout();
   });
+
   slider.on("dragStarted", clearNextTimeout);
   slider.on("animationEnded", nextTimeout);
   slider.on("updated", nextTimeout);
 }
+
 
 
