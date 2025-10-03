@@ -228,7 +228,7 @@ export const ProjectsSection: React.FC = () => {
       description:
         "Premium villas crafted for modern living, featuring spacious layouts, private terraces, and luxurious amenities.",
       image: project2103_1,
-      images: [project2103_5, project2103_2, project2103_3, project2103_4, project2103_1, project3049_11, project3049_12, project3049_13, project3049_14, project3049_15, project3049_16, project3049_17],
+      images: [project2103_2, project2103_3, project2103_1, project3049_11, project3049_12, project3049_13, project3049_14, project3049_15, project3049_16, project3049_17],
       features: [
         "Modern Duplex",
         "Stylish Interiors",
