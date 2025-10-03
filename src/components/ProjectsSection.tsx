@@ -35,6 +35,8 @@ import swami15 from "@/assets/swami15.jpg";
 import swami16 from "@/assets/swami16.jpg";
 import swami17 from "@/assets/swami17.jpg";
 import swami18 from "@/assets/swami18.jpg";
+import swami19 from "@/assets/swami19.jpg"
+import swami20 from "@/assets/swami20.jpg"
 
 
 
@@ -156,7 +158,7 @@ export const ProjectsSection: React.FC = () => {
       description:
         "Exclusive villas designed with luxurious finishes, private gardens, and premium amenities for an elite lifestyle.",
       image: swami1,
-      images: [swami1, swami2, swami3, swami11, swami12, swami13, swami14, swami15, swami16, swami17, swami18 ],
+      images: [swami1, swami2, swami3, swami11, swami12, swami13, swami14, swami15, swami16, swami17, swami18, swami19, swami20 ],
       features: [
         "Modular Design",
         "Luxury Amenities",
