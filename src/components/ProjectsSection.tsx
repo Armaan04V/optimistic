@@ -47,8 +47,7 @@ import mes4 from "@/assets/mes4.jpg";
 import project2103_1 from "@/assets/2103-1.jpg";
 import project2103_2 from "@/assets/2103-2.jpg";
 import project2103_3 from "@/assets/2103-3.jpg";
-import project2103_4 from "@/assets/2103-4.png";
-import project2103_5 from "@/assets/2103-5.jpg"
+
 
 import project3049_1 from "@/assets/3049-1.jpg";
 import project3049_2 from "@/assets/3049-2.jpg";
