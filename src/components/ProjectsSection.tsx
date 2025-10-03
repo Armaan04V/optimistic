@@ -15,10 +15,29 @@ import sunshine4 from "@/assets/sunshine4.jpg";
 
 import mamta2 from "@/assets/mamta2.jpg";
 import mamta3 from "@/assets/mamta3.jpg";
+import mamta11 from "@/assets/mamta11.jpg";
+import mamta12 from "@/assets/mamta12.jpg";
+import mamta13 from "@/assets/mamta13.jpg";
+import mamta14 from "@/assets/mamta14.jpg";
+import mamta15 from "@/assets/mamta15.jpg";
+import mamta16 from "@/assets/mamta16.jpg";
+import mamta17 from "@/assets/mamta17.jpg";
+import mamta18 from "@/assets/mamta18.jpg";
 
 import swami1 from "@/assets/swami1.jpg";
 import swami2 from "@/assets/swami2.jpg";
 import swami3 from "@/assets/swami3.jpg";
+import swami11 from "@/assets/swami11.jpg";
+import swami12 from "@/assets/swami12.jpg";
+import swami13 from "@/assets/swami13.jpg";
+import swami14 from "@/assets/swami14.jpg";
+import swami15 from "@/assets/swami15.jpg";
+import swami16 from "@/assets/swami16.jpg";
+import swami17 from "@/assets/swami17.jpg";
+import swami18 from "@/assets/swami18.jpg";
+
+
+
 
 import mes1 from "@/assets/mes1.jpg";
 import mes2 from "@/assets/mes2.jpg";
@@ -34,6 +53,19 @@ import project2103_5 from "@/assets/2103-5.jpg"
 import project3049_1 from "@/assets/3049-1.jpg";
 import project3049_2 from "@/assets/3049-2.jpg";
 import project3049_3 from "@/assets/3049-3.jpg";
+import project3049_11 from "@/assets/3049-11.jpg";
+import project3049_12 from "@/assets/3049-12.jpg";
+import project3049_13 from "@/assets/3049-13.jpg";
+import project3049_14 from "@/assets/3049-14.jpg";
+import project3049_15 from "@/assets/3049-15.jpg";
+import project3049_16 from "@/assets/3049-16.jpg";
+import project3049_17 from "@/assets/3049-17.jpg";
+
+
+
+
+
+
 
 // Types
 interface Project {
@@ -90,7 +122,7 @@ export const ProjectsSection: React.FC = () => {
       description:
         "Beautifully designed houses and flats offering modern living with spacious rooms, well-ventilated interiors, and secure community surroundings.",
       image: mamta2,
-      images: [mamta2, mamta3],
+      images: [mamta2, mamta3, mamta11, mamta12, mamta13, mamta14, mamta15, mamta16, mamta17, mamta18],
       features: [
         "Spacious Layout",
         "Ample Parking",
@@ -125,7 +157,7 @@ export const ProjectsSection: React.FC = () => {
       description:
         "Exclusive villas designed with luxurious finishes, private gardens, and premium amenities for an elite lifestyle.",
       image: swami1,
-      images: [swami1, swami2, swami3],
+      images: [swami1, swami2, swami3, swami11, swami12, swami13, swami14, swami15, swami16, swami17, swami18 ],
       features: [
         "Modular Design",
         "Luxury Amenities",
@@ -197,7 +229,7 @@ export const ProjectsSection: React.FC = () => {
       description:
         "Premium villas crafted for modern living, featuring spacious layouts, private terraces, and luxurious amenities.",
       image: project2103_1,
-      images: [project2103_5, project2103_2, project2103_3, project2103_4, project2103_1],
+      images: [project2103_5, project2103_2, project2103_3, project2103_4, project2103_1, project3049_11, project3049_12, project3049_13, project3049_14, project3049_15, project3049_16, project3049_17],
       features: [
         "Modern Duplex",
         "Stylish Interiors",
@@ -233,7 +265,7 @@ export const ProjectsSection: React.FC = () => {
       description:
         "Elegant villas offering comfort and style, designed with lush green surroundings and top-notch facilities.",
       image: project3049_1,
-      images: [project3049_1, project3049_2, project3049_3],
+      images: [project3049_1, project3049_2, project3049_3 ],
       features: [
         "Modern Villa",
         "Smart Appliances",
