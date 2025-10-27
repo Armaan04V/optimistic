@@ -224,9 +224,9 @@ export const ProjectsSection: React.FC = () => {
     },
     {
       id: 5,
-      title: "E Block, Aerocity, Mohali",
+      title: "C Block, Aerocity, Mohali",
       type: "Residential Villas",
-      location: "E Block, Aerocity, Mohali",
+      location: "C Block, Aerocity, Mohali",
       description:
         "Premium villas crafted for modern living, featuring spacious layouts, private terraces, and luxurious amenities.",
       image: project2103_1,
