@@ -181,7 +181,7 @@ export const ServicesSection = () => {
       icon: DollarSign,
       title: "Loan Services",
       description: "We assist with financing solutions for your construction projects, offering various loan options to suit your needs.",
-      features: ["Home Loans", "Construction Loans", "Project Financing", "Refinancing Options"]
+      features: ["Home Loans", "Construction Loans", "Car Loans", "Refinancing Options"]
     },
     {
       icon: Compass,
@@ -192,7 +192,7 @@ export const ServicesSection = () => {
     {
       icon: FileCheck,
       title: "Maps Approval (MC Registered)",
-      description: "We provide assistance with getting your construction maps approved under Municipal Corporation (MC) regulations.",
+      description: "We provide assistance with getting your construction maps approved under Municipal Council (MC) regulations.",
       features: ["Map Approval", "NOC", "Plot Regularise", "Estimator & Valuation"]
     }
   ];
