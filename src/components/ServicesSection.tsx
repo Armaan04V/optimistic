@@ -191,9 +191,9 @@ export const ServicesSection = () => {
     },
     {
       icon: FileCheck,
-      title: "Maps Approval (Under MC Registered)",
+      title: "Maps Approval (MC Registered)",
       description: "We provide assistance with getting your construction maps approved under Municipal Corporation (MC) regulations.",
-      features: ["Maps Submission", "MC Registration", "Approval Assistance", "Compliance Consultation"]
+      features: ["Map Approval", "NOC", "Plot Regularise", "Estimator & Valuation"]
     }
   ];
 
