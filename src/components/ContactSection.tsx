@@ -51,12 +51,18 @@ export const ContactSection = () => {
     {
       icon: MapPin,
       title: "Office",
-      detail: (<> Address 1 - Shop No. 14, Pine Homes, Dhakoli, Zirakpur <br /> Address 2 -  4310 E Block Aerocity, SAS Nagar Mohali </>),
-      
+      detail: (
+        <>
+          Address 1 - Shop No. 14, Pine Homes, Dhakoli, Zirakpur <br />
+          Address 2 - 4310 E Block Aerocity, SAS Nagar Mohali
+        </>
+      ),
     },
   ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -65,6 +71,24 @@ export const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // ✅ Phone validation (Indian numbers starting 6–9, total 10 digits)
+    const phoneRegex = /^[6-9][0-9]{9}$/;
+
+    // ✅ Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    if (!phoneRegex.test(formData.phone_number)) {
+      setStatusMessage("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
+    if (!emailRegex.test(formData.email_address)) {
+      setStatusMessage(
+        "Please enter a valid email (example@email.xyz)."
+      );
+      return;
+    }
 
     setSending(true);
     setStatusMessage(null);
@@ -77,9 +101,11 @@ export const ContactSection = () => {
         "Wxb42jc1sYwnHqY1J"
       )
       .then(
-        (response) => {
+        () => {
           setSending(false);
-          setStatusMessage("Message sent successfully! We'll get back to you shortly.");
+          setStatusMessage(
+            "Message sent successfully! We'll get back to you shortly."
+          );
           setFormData({
             full_name: "",
             phone_number: "",
@@ -90,7 +116,9 @@ export const ContactSection = () => {
         },
         (error) => {
           setSending(false);
-          setStatusMessage("Oops! Something went wrong. Please try again later.");
+          setStatusMessage(
+            "Oops! Something went wrong. Please try again later."
+          );
           console.error("EmailJS error:", error);
         }
       );
@@ -100,7 +128,6 @@ export const ContactSection = () => {
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
           <div className="text-center mb-16 animate-fade-up">
             <Badge variant="outline" className="mb-4">
               Get In Touch
@@ -109,250 +136,111 @@ export const ContactSection = () => {
               Start Your Construction
               <span className="text-primary"> Journey Today</span>
             </h2>
-            <p className="body-lg text-muted-foreground max-w-3xl mx-auto">
-              Ready to bring your vision to life? Contact Er. Arman Chalana and
-              our expert team to discuss your project requirements and get a
-              detailed consultation.
-            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
-            <div className="animate-slide-in">
-              <h3 className="heading-xl text-foreground mb-8">
-                Contact Information
-              </h3>
+            {/* Contact Info */}
+            <div>
+              <h3 className="heading-xl mb-8">Contact Information</h3>
 
-              <div className="space-y-6 mb-8">
-                {contactInfo.map((info, index) => {
-                  const Content = (
-                    <div className="flex items-start space-x-4" key={index}>
-                      <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+              <div className="space-y-6">
+                {contactInfo.map((info, index) => (
+                  <Card key={index}>
+                    <CardContent className="p-6">
+                      <div className="flex items-start space-x-4">
                         <info.icon className="h-6 w-6 text-primary" />
+                        <div>
+                          <h4 className="font-semibold">{info.title}</h4>
+                          <p>{info.detail}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {info.subdDetail}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">
-                          {info.title}
-                        </h4>
-                        <p className="text-foreground font-medium">
-                          {info.detail}
-                        </p>
-                        <p className="text-muted-foreground text-sm">
-                          {info.subdDetail}
-                        </p>
-                      </div>
-                    </div>
-                  );
-
-                  return info.link ? (
-                    <Card key={index} className="shadow-card border-0">
-                      <CardContent className="p-6">
-                        <a
-                          href={info.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="block hover:opacity-90 transition-opacity"
-                        >
-                          {Content}
-                        </a>
-                      </CardContent>
-                    </Card>
-                  ) : (
-                    <Card key={index} className="shadow-card border-0">
-                      <CardContent className="p-6">{Content}</CardContent>
-                    </Card>
-                  );
-                })}
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
-
-              {/* Office Hours */}
-              <Card className="bg-gradient-hero shadow-elegant">
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center">
-                      <Clock className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-white mb-1">
-                        Office Hours
-                      </h4>
-                      <p className="text-white/90">
-                        Monday - Saturday: 9:00 AM - 7:00 PM
-                      </p>
-                      <p className="text-white/90">Sunday: 10:00 AM - 5:00 PM</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
 
-            {/* Contact Form */}
-            <div className="animate-fade-up">
-              <Card className="shadow-elegant border-0">
+            {/* Form */}
+            <div>
+              <Card>
                 <CardContent className="p-8">
-                  <h3 className="heading-xl text-foreground mb-6">
-                    Send Us a Message
-                  </h3>
+                  <h3 className="mb-6">Send Us a Message</h3>
 
                   <form className="space-y-6" onSubmit={handleSubmit}>
-                    <div className="grid sm:grid-cols-2 gap-4">
-                      <div>
-                        <label
-                          htmlFor="full_name"
-                          className="text-sm font-medium text-foreground mb-2 block"
-                        >
-                          Full Name
-                        </label>
-                        <Input
-                          id="full_name"
-                          name="full_name"
-                          value={formData.full_name}
-                          onChange={handleChange}
-                          placeholder="Your full name"
-                          className="h-12"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <label
-                          htmlFor="phone_number"
-                          className="text-sm font-medium text-foreground mb-2 block"
-                        >
-                          Phone Number
-                        </label>
-                        <Input
-                          id="phone_number"
-                          name="phone_number"
-                          value={formData.phone_number}
-                          onChange={handleChange}
-                          placeholder="Your phone number"
-                          className="h-12"
-                          required
-                        />
-                      </div>
-                    </div>
+                    <Input
+                      name="full_name"
+                      value={formData.full_name}
+                      onChange={handleChange}
+                      placeholder="Full Name"
+                      required
+                    />
 
-                    <div>
-                      <label
-                        htmlFor="email_address"
-                        className="text-sm font-medium text-foreground mb-2 block"
-                      >
-                        Email Address
-                      </label>
-                      <Input
-                        type="email"
-                        id="email_address"
-                        name="email_address"
-                        value={formData.email_address}
-                        onChange={handleChange}
-                        placeholder="your.email@example.com"
-                        className="h-12"
-                        required
-                      />
-                    </div>
+                    {/* ✅ Phone input restricted */}
+                    <Input
+                      name="phone_number"
+                      value={formData.phone_number}
+                      onChange={(e) => {
+                        const value = e.target.value.replace(/\D/g, "");
+                        setFormData((prev) => ({
+                          ...prev,
+                          phone_number: value,
+                        }));
+                      }}
+                      placeholder="Phone Number"
+                      maxLength={10}
+                      required
+                    />
 
-                    <div>
-                      <label
-                        htmlFor="project_type"
-                        className="text-sm font-medium text-foreground mb-2 block"
-                      >
-                        Project Type
-                      </label>
-                      <Input
-                        id="project_type"
-                        name="project_type"
-                        value={formData.project_type}
-                        onChange={handleChange}
-                        placeholder="e.g., Residential, Commercial, Industrial"
-                        className="h-12"
-                        required
-                      />
-                    </div>
+                    <Input
+                      name="email_address"
+                      value={formData.email_address}
+                      onChange={handleChange}
+                      placeholder="Email Address"
+                      required
+                    />
 
-                    <div>
-                      <label
-                        htmlFor="project_details"
-                        className="text-sm font-medium text-foreground mb-2 block"
-                      >
-                        Project Details
-                      </label>
-                      <Textarea
-                        id="project_details"
-                        name="project_details"
-                        value={formData.project_details}
-                        onChange={handleChange}
-                        placeholder="Tell us about your project requirements, timeline, and any specific needs..."
-                        className="min-h-[120px] resize-none"
-                        required
-                      />
-                    </div>
+                    <Input
+                      name="project_type"
+                      value={formData.project_type}
+                      onChange={handleChange}
+                      placeholder="Project Type"
+                      required
+                    />
+
+                    <Textarea
+                      name="project_details"
+                      value={formData.project_details}
+                      onChange={handleChange}
+                      placeholder="Project Details"
+                      required
+                    />
 
                     {statusMessage && (
                       <p
-                        className={`${
-                          statusMessage.includes("successfully")
+                        className={
+                          statusMessage.includes("success")
                             ? "text-green-600"
                             : "text-red-600"
-                        }`}
+                        }
                       >
                         {statusMessage}
                       </p>
                     )}
 
-                    <Button
-                      type="submit"
-                      size="lg"
-                      variant="premium"
-                      className="w-full text-white"
-                      disabled={sending}
-                    >
+                    <Button type="submit" disabled={sending}>
                       {sending ? "Sending..." : "Send Message"}
-                      <Send className="ml-2 h-5 w-5 text-white" />
+                      <Send className="ml-2 h-5 w-5" />
                     </Button>
                   </form>
                 </CardContent>
               </Card>
             </div>
           </div>
-
-          {/* Bottom CTA */}
-          <div className="mt-16 text-center animate-fade-up">
-            <Card className="bg-gradient-accent text-accent-foreground shadow-elegant">
-              <CardContent className="p-8">
-                <MessageSquare className="h-12 w-12 text-accent-foreground mx-auto mb-4" />
-                <h3 className="heading-lg text-accent-foreground mb-3">
-                  Need Immediate Assistance?
-                </h3>
-                <p className="text-accent-foreground/90 mb-6 max-w-xl mx-auto">
-                  For urgent project inquiries or emergency construction needs,
-                  call Er. Arman Chalana directly for immediate support.
-                </p>
-                <a href="tel:+918847589272">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-yellow-400 text-yellow-400 bg-black hover:bg-black hover:text-yellow-400 transform transition-transform duration-300 hover:scale-105"
-                  >
-                    <Phone className="mr-2 h-5 w-5" />
-                    Call Now: +91-88475-89272
-                  </Button>
-                </a>
-              </CardContent>
-            </Card>
-          </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="mt-20 pt-8 border-t border-border">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <p className="text-muted-foreground">
-              © 2026 Optimistic Innovators. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </section>
   );
 };
