@@ -64,37 +64,54 @@ export const ContactSection = () => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    setSending(true);
-    setStatusMessage(null);
+  setStatusMessage(null);
 
-    emailjs
-      .send(
-        "service_atvgq9e",
-        "template_mhcmnk3",
-        formData,
-        "Wxb42jc1sYwnHqY1J"
-      )
-      .then(
-        (response) => {
-          setSending(false);
-          setStatusMessage("Message sent successfully! We'll get back to you shortly.");
-          setFormData({
-            full_name: "",
-            phone_number: "",
-            email_address: "",
-            project_type: "",
-            project_details: "",
-          });
-        },
-        (error) => {
-          setSending(false);
-          setStatusMessage("Oops! Something went wrong. Please try again later.");
-          console.error("EmailJS error:", error);
-        }
-      );
-  };
+  // Email regex
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // Phone regex (exactly 10 digits)
+  const phoneRegex = /^[0-9]{10}$/;
+
+  if (!emailRegex.test(formData.email_address)) {
+    setStatusMessage("Please enter a valid email address.");
+    return;
+  }
+
+  if (!phoneRegex.test(formData.phone_number)) {
+    setStatusMessage("Phone number must be exactly 10 digits.");
+    return;
+  }
+
+  setSending(true);
+
+  emailjs
+    .send(
+      "service_atvgq9e",
+      "template_mhcmnk3",
+      formData,
+      "Wxb42jc1sYwnHqY1J"
+    )
+    .then(
+      (response) => {
+        setSending(false);
+        setStatusMessage("Message sent successfully! We'll get back to you shortly.");
+        setFormData({
+          full_name: "",
+          phone_number: "",
+          email_address: "",
+          project_type: "",
+          project_details: "",
+        });
+      },
+      (error) => {
+        setSending(false);
+        setStatusMessage("Oops! Something went wrong. Please try again later.");
+        console.error("EmailJS error:", error);
+      }
+    );
+};
 
   return (
     <section id="contact" className="py-20 bg-muted/30">
