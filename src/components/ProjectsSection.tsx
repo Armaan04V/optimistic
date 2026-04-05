@@ -296,17 +296,19 @@ export const ProjectsSection: React.FC = () => {
     },
   ];
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
+ const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
     setIsModalOpen(true);
+    document.body.style.overflow = "hidden"; // Disable body scroll
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedProject(null);
+    document.body.style.overflow = "auto"; // Restore body scroll
   };
 
   return (
@@ -414,7 +416,7 @@ export const ProjectsSection: React.FC = () => {
               className="absolute top-4 right-4 text-foreground hover:text-primary text-2xl font-bold"
               aria-label="Close modal"
             >
-              &times;
+              ✖
             </button>
 
             <KeenImageSlider images={selectedProject.images} />
@@ -517,6 +519,3 @@ function Autoplay(slider: any) {
   slider.on("animationEnded", nextTimeout);
   slider.on("updated", nextTimeout);
 }
-
-
-
