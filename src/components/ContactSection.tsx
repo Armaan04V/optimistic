@@ -51,8 +51,12 @@ export const ContactSection = () => {
     {
       icon: MapPin,
       title: "Office",
-      detail: (<> Address 1 - Shop No. 14, Pine Homes, Dhakoli, Zirakpur <br /> Address 2 -  4310 E Block Aerocity, SAS Nagar Mohali </>),
-      
+      detail: (
+        <>
+          Address 1 - Shop No. 14, Pine Homes, Dhakoli, Zirakpur <br /> Address
+          2 - 4310 E Block Aerocity, SAS Nagar Mohali
+        </>
+      ),
     },
   ];
 
@@ -64,57 +68,57 @@ export const ContactSection = () => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  setStatusMessage(null);
+    setStatusMessage(null);
 
-  // Email regex
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Email regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // Phone regex (exactly 10 digits)
-  const phoneRegex = /^[0-9]{10}$/;
+    // Phone regex (exactly 10 digits)
+    const phoneRegex = /^[0-9]{10}$/;
 
-  if (!emailRegex.test(formData.email_address)) {
-    setStatusMessage("Please enter a valid email address.");
-    return;
-  }
+    if (!emailRegex.test(formData.email_address)) {
+      setStatusMessage("Please enter a valid email address.");
+      return;
+    }
 
-  if (!phoneRegex.test(formData.phone_number)) {
-    setStatusMessage("Phone number must be exactly 10 digits.");
-    return;
-  }
+    if (!phoneRegex.test(formData.phone_number)) {
+      setStatusMessage("Phone number must be exactly 10 digits.");
+      return;
+    }
 
-  setSending(true);
+    setSending(true);
 
-  emailjs
-    .send(
-      "service_atvgq9e",
-      "template_mhcmnk3",
-      formData,
-      "Wxb42jc1sYwnHqY1J"
-    )
-    .then(
-      (response) => {
-        setSending(false);
-        setStatusMessage("Message sent successfully! We'll get back to you shortly.");
-        setFormData({
-          full_name: "",
-          phone_number: "",
-          email_address: "",
-          project_type: "",
-          project_details: "",
-        });
-      },
-      (error) => {
-        setSending(false);
-        setStatusMessage("Oops! Something went wrong. Please try again later.");
-        console.error("EmailJS error:", error);
-      }
-    );
-};
+    emailjs
+      .send(
+        "service_atvgq9e",
+        "template_mhcmnk3",
+        formData,
+        "Wxb42jc1sYwnHqY1J"
+      )
+      .then(
+        (response) => {
+          setSending(false);
+          setStatusMessage("Message sent successfully! We'll get back to you shortly.");
+          setFormData({
+            full_name: "",
+            phone_number: "",
+            email_address: "",
+            project_type: "",
+            project_details: "",
+          });
+        },
+        (error) => {
+          setSending(false);
+          setStatusMessage("Oops! Something went wrong. Please try again later.");
+          console.error("EmailJS error:", error);
+        }
+      );
+  };
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
+    <section id="contact" className="py-20 bg-muted/30 overflow-x-hidden">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
@@ -268,7 +272,7 @@ export const ContactSection = () => {
                       />
                     </div>
 
-                    <div>
+                                        <div>
                       <label
                         htmlFor="project_type"
                         className="text-sm font-medium text-foreground mb-2 block"
