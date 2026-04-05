@@ -37,9 +37,9 @@ export const ContactSection = () => {
     {
       icon: Phone,
       title: "Phone",
-      detail: "+91-88475-89272",
+      detail: "+91-96466-66905",
       subdDetail: "Available 24/7",
-      link: "tel:+918847589272",
+      link: "tel:+919646666905",
     },
     {
       icon: Mail,
@@ -344,14 +344,14 @@ export const ContactSection = () => {
                   For urgent project inquiries or emergency construction needs,
                   call Er. Arman Chalana directly for immediate support.
                 </p>
-                <a href="tel:+918847589272">
+                <a href="tel:+919646666905">
                   <Button
                     size="lg"
                     variant="outline"
                     className="border-yellow-400 text-yellow-400 bg-black hover:bg-black hover:text-yellow-400 transform transition-transform duration-300 hover:scale-105"
                   >
                     <Phone className="mr-2 h-5 w-5" />
-                    Call Now: +91-88475-89272
+                    Call Now: +91-96466-66905
                   </Button>
                 </a>
               </CardContent>
