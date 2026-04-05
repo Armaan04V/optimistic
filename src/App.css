@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -39,4 +41,34 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Scroll to Top Button Styles matching the website color scheme */
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f1c40f; /* Gold color for the button */
+  color: #2c3e50; /* Dark color for the text to make it readable */
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  z-index: 1000; /* Ensures it's above other content */
+}
+
+.scroll-to-top-btn:hover {
+  background-color: #f39c12; /* Slightly darker gold on hover */
+  opacity: 1;
+}
+
+.scroll-to-top-btn:focus {
+  outline: none;
 }
