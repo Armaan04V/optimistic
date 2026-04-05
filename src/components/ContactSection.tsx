@@ -37,9 +37,9 @@ export const ContactSection = () => {
     {
       icon: Phone,
       title: "Phone",
-      detail: "+91-96466-66905",
+      detail: "+91-88475-89272",
       subdDetail: "Available 24/7",
-      link: "tel:+919646666905",
+      link: "tel:+918847589272",
     },
     {
       icon: Mail,
@@ -53,14 +53,16 @@ export const ContactSection = () => {
       title: "Office",
       detail: (
         <>
-          Address 1 - Shop No. 14, Pine Homes, Dhakoli, Zirakpur <br /> Address
-          2 - 4310 E Block Aerocity, SAS Nagar Mohali
+          Address 1 - Shop No. 14, Pine Homes, Dhakoli, Zirakpur <br />
+          Address 2 - 4310 E Block Aerocity, SAS Nagar Mohali
         </>
       ),
     },
   ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
@@ -100,7 +102,9 @@ export const ContactSection = () => {
       .then(
         (response) => {
           setSending(false);
-          setStatusMessage("Message sent successfully! We'll get back to you shortly.");
+          setStatusMessage(
+            "Message sent successfully! We'll get back to you shortly."
+          );
           setFormData({
             full_name: "",
             phone_number: "",
@@ -118,9 +122,9 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-muted/30 overflow-x-hidden">
-      <div className="container mx-auto px-4 max-w-full">
-        <div className="max-w-full mx-auto">
+    <section id="contact" className="py-20 bg-muted/30">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16 animate-fade-up">
             <Badge variant="outline" className="mb-4">
@@ -137,9 +141,9 @@ export const ContactSection = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
-            <div className="animate-slide-in w-full">
+            <div className="animate-slide-in">
               <h3 className="heading-xl text-foreground mb-8">
                 Contact Information
               </h3>
@@ -155,7 +159,7 @@ export const ContactSection = () => {
                         <h4 className="font-semibold text-foreground mb-1">
                           {info.title}
                         </h4>
-                        <p className="text-foreground font-medium break-words w-full">
+                        <p className="text-foreground font-medium">
                           {info.detail}
                         </p>
                         <p className="text-muted-foreground text-sm">
@@ -166,7 +170,7 @@ export const ContactSection = () => {
                   );
 
                   return info.link ? (
-                    <Card key={index} className="shadow-card border-0">
+                    <Card key={index} className="shadow-card border-0 w-full">
                       <CardContent className="p-6">
                         <a
                           href={info.link}
@@ -179,7 +183,7 @@ export const ContactSection = () => {
                       </CardContent>
                     </Card>
                   ) : (
-                    <Card key={index} className="shadow-card border-0">
+                    <Card key={index} className="shadow-card border-0 w-full">
                       <CardContent className="p-6">{Content}</CardContent>
                     </Card>
                   );
@@ -208,8 +212,8 @@ export const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="animate-fade-up w-full">
-              <Card className="shadow-elegant border-0">
+            <div className="animate-fade-up">
+              <Card className="shadow-elegant border-0 w-full">
                 <CardContent className="p-8">
                   <h3 className="heading-xl text-foreground mb-6">
                     Send Us a Message
@@ -348,14 +352,14 @@ export const ContactSection = () => {
                   For urgent project inquiries or emergency construction needs,
                   call Er. Arman Chalana directly for immediate support.
                 </p>
-                <a href="tel:+919646666905">
+                <a href="tel:+918847589272">
                   <Button
                     size="lg"
                     variant="outline"
                     className="border-yellow-400 text-yellow-400 bg-black hover:bg-black hover:text-yellow-400 transform transition-transform duration-300 hover:scale-105"
                   >
                     <Phone className="mr-2 h-5 w-5" />
-                    Call Now: +91-96466-66905
+                    Call Now: +91-88475-89272
                   </Button>
                 </a>
               </CardContent>
