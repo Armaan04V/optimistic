@@ -411,13 +411,13 @@ export const ProjectsSection: React.FC = () => {
             className="bg-background rounded-lg shadow-xl max-w-5xl w-full p-6 relative overflow-auto max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={closeModal}
-              className="absolute top-4 right-4 text-foreground hover:text-primary text-2xl font-bold"
-              aria-label="Close modal"
-            >
-              ✖
-            </button>
+           <button
+  onClick={closeModal}
+  className="absolute top-2 right-2 z-10 text-white bg-gray-800 hover:bg-primary hover:text-white text-2xl font-bold p-2 rounded-full shadow-md transition-all ease-in-out duration-200 transform hover:scale-110"
+  aria-label="Close modal"
+>
+  ✖
+</button>
 
             <KeenImageSlider images={selectedProject.images} />
 
