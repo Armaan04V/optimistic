@@ -119,8 +119,8 @@ export const ContactSection = () => {
 
   return (
     <section id="contact" className="py-20 bg-muted/30 overflow-x-hidden">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
+      <div className="container mx-auto px-4 max-w-full">
+        <div className="max-w-full mx-auto">
           {/* Header */}
           <div className="text-center mb-16 animate-fade-up">
             <Badge variant="outline" className="mb-4">
@@ -137,9 +137,9 @@ export const ContactSection = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12 w-full">
             {/* Contact Information */}
-            <div className="animate-slide-in">
+            <div className="animate-slide-in w-full">
               <h3 className="heading-xl text-foreground mb-8">
                 Contact Information
               </h3>
@@ -155,7 +155,7 @@ export const ContactSection = () => {
                         <h4 className="font-semibold text-foreground mb-1">
                           {info.title}
                         </h4>
-                        <p className="text-foreground font-medium">
+                        <p className="text-foreground font-medium break-words w-full">
                           {info.detail}
                         </p>
                         <p className="text-muted-foreground text-sm">
@@ -208,7 +208,7 @@ export const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="animate-fade-up">
+            <div className="animate-fade-up w-full">
               <Card className="shadow-elegant border-0">
                 <CardContent className="p-8">
                   <h3 className="heading-xl text-foreground mb-6">
@@ -230,7 +230,7 @@ export const ContactSection = () => {
                           value={formData.full_name}
                           onChange={handleChange}
                           placeholder="Your full name"
-                          className="h-12"
+                          className="h-12 w-full"
                           required
                         />
                       </div>
@@ -247,7 +247,7 @@ export const ContactSection = () => {
                           value={formData.phone_number}
                           onChange={handleChange}
                           placeholder="Your phone number"
-                          className="h-12"
+                          className="h-12 w-full"
                           required
                         />
                       </div>
@@ -267,12 +267,12 @@ export const ContactSection = () => {
                         value={formData.email_address}
                         onChange={handleChange}
                         placeholder="your.email@example.com"
-                        className="h-12"
+                        className="h-12 w-full"
                         required
                       />
                     </div>
 
-                                        <div>
+                    <div>
                       <label
                         htmlFor="project_type"
                         className="text-sm font-medium text-foreground mb-2 block"
@@ -285,7 +285,7 @@ export const ContactSection = () => {
                         value={formData.project_type}
                         onChange={handleChange}
                         placeholder="e.g., Residential, Commercial, Industrial"
-                        className="h-12"
+                        className="h-12 w-full"
                         required
                       />
                     </div>
@@ -303,7 +303,7 @@ export const ContactSection = () => {
                         value={formData.project_details}
                         onChange={handleChange}
                         placeholder="Tell us about your project requirements, timeline, and any specific needs..."
-                        className="min-h-[120px] resize-none"
+                        className="min-h-[120px] resize-none w-full"
                         required
                       />
                     </div>
