@@ -37,9 +37,9 @@ export const ContactSection = () => {
     {
       icon: Phone,
       title: "Phone",
-      detail: "+91-88475-89272",
+      detail: "+91-96466-66905",
       subdDetail: "Available 24/7",
-      link: "tel:+918847589272",
+      link: "tel:+919646666905",
     },
     {
       icon: Mail,
@@ -74,10 +74,7 @@ export const ContactSection = () => {
 
     setStatusMessage(null);
 
-    // Email regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    // Phone regex (exactly 10 digits)
     const phoneRegex = /^[0-9]{10}$/;
 
     if (!emailRegex.test(formData.email_address)) {
@@ -100,7 +97,7 @@ export const ContactSection = () => {
         "Wxb42jc1sYwnHqY1J"
       )
       .then(
-        (response) => {
+        () => {
           setSending(false);
           setStatusMessage(
             "Message sent successfully! We'll get back to you shortly."
@@ -125,7 +122,6 @@ export const ContactSection = () => {
     <section id="contact" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          {/* Header */}
           <div className="text-center mb-16 animate-fade-up">
             <Badge variant="outline" className="mb-4">
               Get In Touch
@@ -142,7 +138,6 @@ export const ContactSection = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Information */}
             <div className="animate-slide-in">
               <h3 className="heading-xl text-foreground mb-8">
                 Contact Information
@@ -155,11 +150,13 @@ export const ContactSection = () => {
                       <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
                         <info.icon className="h-6 w-6 text-primary" />
                       </div>
-                      <div>
+
+                      {/* ✅ FIX APPLIED HERE */}
+                      <div className="min-w-0">
                         <h4 className="font-semibold text-foreground mb-1">
                           {info.title}
                         </h4>
-                        <p className="text-foreground font-medium">
+                        <p className="text-foreground font-medium break-all">
                           {info.detail}
                         </p>
                         <p className="text-muted-foreground text-sm">
@@ -190,7 +187,6 @@ export const ContactSection = () => {
                 })}
               </div>
 
-              {/* Office Hours */}
               <Card className="bg-gradient-hero shadow-elegant">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4">
@@ -352,14 +348,14 @@ export const ContactSection = () => {
                   For urgent project inquiries or emergency construction needs,
                   call Er. Arman Chalana directly for immediate support.
                 </p>
-                <a href="tel:+918847589272">
+                <a href="tel:+919646666905">
                   <Button
                     size="lg"
                     variant="outline"
                     className="border-yellow-400 text-yellow-400 bg-black hover:bg-black hover:text-yellow-400 transform transition-transform duration-300 hover:scale-105"
                   >
                     <Phone className="mr-2 h-5 w-5" />
-                    Call Now: +91-88475-89272
+                    Call Now: +91-96466-66905
                   </Button>
                 </a>
               </CardContent>

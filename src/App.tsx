@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import './App.css'; // Ensure your CSS styles are applied
+import "./App.css";
 
 const queryClient = new QueryClient();
 
@@ -14,11 +14,7 @@ const App = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
-    if (window.scrollY > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+    setIsVisible(window.scrollY > 300);
   };
 
   const scrollToTop = () => {
@@ -30,9 +26,7 @@ const App = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", toggleVisibility);
-    return () => {
-      window.removeEventListener("scroll", toggleVisibility);
-    };
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   return (
@@ -40,13 +34,14 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
+
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-        {/* Scroll to Top Button */}
+
         {isVisible && (
           <button className="scroll-to-top-btn" onClick={scrollToTop}>
             ↑
